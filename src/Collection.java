@@ -2,9 +2,34 @@ import java.util.Scanner;
 
 public class Collection {
 	public static void main(String[] args) {
-		int arrayInitialSize=2,number=0;
+		int arrayInitialSize=2,index=0,element=0;
 		Scanner scanner= new Scanner(System.in);
 		int[] array= new int[arrayInitialSize];
+		array = insertIntoArray(scanner, array);
+		printArray(array);
+		//System.out.println(array.length);
+		System.out.println("Enter the Index to be deleted");
+		index=scanner.nextInt();
+		deletefromArray(array,index);
+		printArray(array);
+		/* System.out.println("Enter the Element to be deleted");
+		element=scanner.nextInt();
+		deleteElementfromArray(array,element);
+		//printArray(array); */
+		scanner.close();
+	}
+	
+	private static void deletefromArray(int[] array,int index) {
+		System.out.println(array[index]);
+		if(index<array.length) {
+			for (int i = index; (i <array.length-1); i++) {
+					array[i]=array[i+1];
+			}
+		}
+	}
+
+	private static int[] insertIntoArray(Scanner scanner, int[] array) {
+		int number;
 		int arrayIndex=0;
 		do {
 			number=scanner.nextInt();
@@ -20,8 +45,7 @@ public class Collection {
 				break;
 			}
 		} while (true);
-		printArray(array);
-		scanner.close();
+		return array;
 	}
 
 	private static int[] increaseArraySize(int[] array) {
