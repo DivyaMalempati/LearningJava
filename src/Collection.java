@@ -12,10 +12,6 @@ public class Collection {
 		index=scanner.nextInt();
 		deletefromArray(array,index);
 		printArray(array);
-		/* System.out.println("Enter the Element to be deleted");
-		element=scanner.nextInt();
-		deleteElementfromArray(array,element);
-		//printArray(array); */
 		scanner.close();
 	}
 	
@@ -25,6 +21,7 @@ public class Collection {
 			for (int i = index; (i <array.length-1); i++) {
 					array[i]=array[i+1];
 			}
+			array[array.length-1]=0;
 		}
 	}
 
