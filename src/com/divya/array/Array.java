@@ -56,7 +56,27 @@ public class Array {
 	public boolean deleteLastElement() {
 		return deleteAtIndex(size - 1);
 	}
-	
+	public boolean insertAtLast(int number) {
+		return insertAtRequiredIndex(number,size);
+	}
+	public boolean insertAtFirst(int number) {
+		return insertAtRequiredIndex(number,0);
+	}
+	public boolean insertAtRequiredIndex(int number,int index) {
+		//to insert we have to check size with length. 
+		if(size>array.length/2) {
+			array=increaseArraySize();
+		}
+		if(index<=size) {
+			for (int i = size; i>=index; i--) {
+				array[i+1]=array[i];
+			}
+			size++;
+			array[index]=number;
+			return true;
+		}
+			return false;	
+	}
 	private boolean deleteAtIndex(int index) {
 		if (index < size) {
 			for (int i = index; (i < size - 1); i++) {
