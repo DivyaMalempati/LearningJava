@@ -1,30 +1,5 @@
-
-public class ArrayOperations {
-	public static void main(String[] args) {
-		Array array = new Array();
-		array.add(2);
-		array.add(1);
-		array.add(25);
-		array.add(63);
-		array.add(92);
-		array.add(14);
-		array.print();
-		array.deleteLastElement();
-		array.deleteLastElement();
-		array.deleteLastElement();
-		array.deleteLastElement();
-		array.deleteLastElement();
-		array.deleteLastElement();
-		array.add(2);
-		array.add(20);
-		array.add(12);
-		array.add(25);
-		array.print();
-	}
-
-}
-
-class Array {
+package com.divya.array;
+public class Array {
 	private static final int INITIAL_DEFAULT_SIZE = 2;
 	private int size;
 	private int[] array;
@@ -38,6 +13,16 @@ class Array {
 
 	public Array() {
 		this(INITIAL_DEFAULT_SIZE);
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void add(int... number) {
+		for (int i : number) {
+			add(i);
+		}
 	}
 
 	public void add(int number) {
@@ -71,7 +56,7 @@ class Array {
 	public boolean deleteLastElement() {
 		return deleteAtIndex(size - 1);
 	}
-
+	
 	private boolean deleteAtIndex(int index) {
 		if (index < size) {
 			for (int i = index; (i < size - 1); i++) {
