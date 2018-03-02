@@ -1,4 +1,5 @@
 package com.divya.array;
+
 public class Array {
 	private static final int INITIAL_DEFAULT_SIZE = 2;
 	private int size;
@@ -17,6 +18,10 @@ public class Array {
 
 	public int getSize() {
 		return size;
+	}
+
+	int getArrayLength() {
+		return array.length;
 	}
 
 	public void add(int... number) {
@@ -56,29 +61,37 @@ public class Array {
 	public boolean deleteLastElement() {
 		return deleteAtIndex(size - 1);
 	}
+
+	public boolean deleteFirstElement() {
+		return deleteAtIndex(0);
+	}
+
 	public boolean insertAtLast(int number) {
-		return insertAtRequiredIndex(number,size);
+		return insertAtRequiredIndex(number, size);
 	}
+
 	public boolean insertAtFirst(int number) {
-		return insertAtRequiredIndex(number,0);
+		return insertAtRequiredIndex(number, 0);
 	}
-	public boolean insertAtRequiredIndex(int number,int index) {
-		//to insert we have to check size with length. 
-		if(size>array.length/2) {
-			array=increaseArraySize();
+
+	public boolean insertAtRequiredIndex(int number, int index) {
+		// to insert we have to check size with length.
+		if (size >= array.length) {
+			array = increaseArraySize();
 		}
-		if(index<=size) {
-			for (int i = size; i>=index; i--) {
-				array[i+1]=array[i];
+		if (index <= size) {
+			for (int i = size; i >= index; i--) {
+				array[i + 1] = array[i];
 			}
 			size++;
-			array[index]=number;
+			array[index] = number;
 			return true;
 		}
-			return false;	
+		return false;
 	}
+
 	private boolean deleteAtIndex(int index) {
-		if (index < size) {
+		if ((index < size) && (index >= 0)) {
 			for (int i = index; (i < size - 1); i++) {
 				array[i] = array[i + 1];
 			}
