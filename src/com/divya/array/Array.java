@@ -76,7 +76,7 @@ public class Array {
 
 	public boolean insertAtRequiredIndex(int number, int index) {
 		// to insert we have to check size with length.
-		if (size >= array.length) {
+		if (size > array.length) {
 			array = increaseArraySize();
 		}
 		if (index <= size) {
@@ -107,8 +107,8 @@ public class Array {
 	}
 
 	public void print() {
-		System.out.println("Array Length :" + array.length);
 		System.out.println("Array Size :" + size);
+		System.out.println("Array Length :" + array.length);
 		System.out.println(this.toString());
 	}
 
