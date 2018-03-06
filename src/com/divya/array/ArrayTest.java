@@ -14,18 +14,66 @@ class ArrayTest {
 		array.add(51);
 		assertEquals(2, array.getSize());
 		assertEquals(2, array.getArrayLength());
+		array.insertAtRequiredIndex(1, 1);
+		assertEquals(3, array.getSize());
+		assertEquals(4, array.getArrayLength());
+	}
+
+	@Test
+	void addmultipleElements() {
+		Array array = new Array();
 		array.add(1, 2, 3, 4, 5, 6);
-		assertEquals(8, array.getSize());
+		assertEquals(6, array.getSize());
 		assertEquals(8, array.getArrayLength());
+	}
+
+	@Test
+	void addAtFirst() {
+		Array array = new Array();
+		array.add(1, 4, 6, 7, 2, 8, 3, 45);
 		array.insertAtFirst(23);
 		assertEquals(9, array.getSize());
 		assertEquals(16, array.getArrayLength());
+	}
+
+	@Test
+	void addAtLast() {
+		Array array = new Array();
+		array.add(1, 2, 3, 4, 5, 6);
 		array.insertAtLast(16);
-		assertEquals(10, array.getSize());
+		assertEquals(7, array.getSize());
+		assertEquals(8, array.getArrayLength());
+	}
+
+	@Test
+	void addAtRequiredIndex() {
+		Array array = new Array();
+		array.add(2, 78);
+		array.print();
+		array.insertAtRequiredIndex(14, 1);
+		assertEquals(3, array.getSize());
+		assertEquals(4, array.getArrayLength());
+		array.print();
+		array.insertAtRequiredIndex(24, 2);
+		assertEquals(4, array.getSize());
+		assertEquals(8, array.getArrayLength());
+		array.print();
+		array.insertAtRequiredIndex(42, 3);
+		assertEquals(5, array.getSize());
+		assertEquals(8, array.getArrayLength());
+		array.print();
+		array.insertAtRequiredIndex(412, 2);
+		assertEquals(6, array.getSize());
+		assertEquals(8, array.getArrayLength());
+		array.print();
+		array.insertAtRequiredIndex(12, 3);
+		assertEquals(7, array.getSize());
+		assertEquals(8, array.getArrayLength());
+		array.print();
+		array.insertAtRequiredIndex(8, 2);
+		assertEquals(8, array.getSize());
 		assertEquals(16, array.getArrayLength());
-		array.insertAtRequiredIndex(6, 3);
-		assertEquals(11, array.getSize());
-		assertEquals(16, array.getArrayLength());
+		array.print();
 	}
 
 	@Test
