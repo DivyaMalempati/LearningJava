@@ -1,14 +1,14 @@
 package com.divya.array;
 
-public class Array {
+public class Array<Type> {
 	private static final int INITIAL_DEFAULT_SIZE = 2;
 	private int size;
-	private int[] array;
+	private Type[] array;
 	private int minimumSize;
 
 	public Array(int initialSize) {
 		minimumSize = initialSize;
-		array = new int[initialSize];
+		array = (Type[]) new Object[initialSize];
 		size = 0;
 	}
 
@@ -24,13 +24,13 @@ public class Array {
 		return array.length;
 	}
 
-	public void add(int... number) {
-		for (int i : number) {
+	public void add(Type... number) {
+		for (Type i : number) {
 			add(i);
 		}
 	}
 
-	public void add(int number) {
+	public void add(Type number) {
 		if (size >= array.length) {
 			array = increaseArraySize();
 		}
@@ -38,9 +38,9 @@ public class Array {
 		size++;
 	}
 
-	private int[] increaseArraySize() {
+	private Type[] increaseArraySize() {
 		int arraySize = array.length * 2;
-		int[] newArray = new int[arraySize];
+		Type[] newArray = (Type[]) new Object[arraySize];
 		for (int i = 0; i < size; i++) {
 			newArray[i] = array[i];
 		}
@@ -48,9 +48,9 @@ public class Array {
 
 	}
 
-	private int[] decreaseArraySize() {
+	private Type[] decreaseArraySize() {
 		int arraySize = array.length / 2;
-		int[] newArray = new int[arraySize];
+		Type[] newArray = (Type[]) new Object[arraySize];
 		for (int i = 0; i < size; i++) {
 			newArray[i] = array[i];
 		}
@@ -66,17 +66,17 @@ public class Array {
 		return deleteAtIndex(0);
 	}
 
-	public boolean insertAtLast(int number) {
+	public boolean insertAtLast(Type number) {
 		return insertAtRequiredIndex(number, size);
 	}
 
-	public boolean insertAtFirst(int number) {
+	public boolean insertAtFirst(Type number) {
 		return insertAtRequiredIndex(number, 0);
 	}
 
-	public boolean insertAtRequiredIndex(int number, int index) {
+	public boolean insertAtRequiredIndex(Type number, int index) {
 		// to insert we have to check size with length.
-		if (size > array.length) {
+		if (size >= array.length - 1) {
 			array = increaseArraySize();
 		}
 		if (index <= size) {
